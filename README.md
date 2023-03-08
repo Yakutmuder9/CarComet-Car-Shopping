@@ -1,0 +1,3 @@
+# CarComet-Car-Shopping
+<p>CarComet is a unique and exciting car shopping website that provides a fun and engaging way to buy your next vehicle. Our website offers a 
+user-friendly interface that allows you to easily browse through a wide selection of new and used cars, trucks, and SUVs from top brands. With CarComet, you can customize your search by make, model, year, price, and other features to find the perfect vehicle that meets your needs and budget.</p>
