@@ -1,8 +1,11 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
+import { store } from "./redux/store/store";
 import App from "./App";
+import 'font-awesome/css/font-awesome.css';
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeProvider";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -10,7 +13,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

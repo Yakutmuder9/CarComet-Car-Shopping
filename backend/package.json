@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "CarComet is a unique and exciting car shopping website that provides a fun and engaging way to buy your next vehicle. Our website offers a user-friendly interface that allows you to easily browse through a wide selection of new and used cars, trucks, and SUVs from top brands. With CarComet, you can customize your search by make, model, year, price, and other features to find the perfect vehicle that meets your needs and budget.",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "dev": "concurrently \"cd .. && cd frontend && npm start\" \"nodemon app.js\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/Yakutmuder9/CarComet-Car-Shopping/issues"
   },
-  "homepage": "https://github.com/Yakutmuder9/CarComet-Car-Shopping#readme"
+  "homepage": "https://github.com/Yakutmuder9/CarComet-Car-Shopping#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.1"
+  }
 }

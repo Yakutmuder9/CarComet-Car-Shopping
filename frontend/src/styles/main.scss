@@ -1,0 +1,48 @@
+@import "./base/variables";
+@import "./base/typology";
+
+@import "./components/header.scss";
+
+@import "./pages/home.scss";
+@import "./pages/cars.scss";
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+/*---Side Scroll Bar ---*/
+::-webkit-scrollbar {
+    width: 1.2vmin;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #000;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--bg-color);
+}
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Oswald", Verdana, Arial, sans-serif;
+    color: var(--text-color);
+    background: var(--background-color);
+}

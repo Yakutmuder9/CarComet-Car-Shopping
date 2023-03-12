@@ -1,0 +1,255 @@
+{
+    "vehicle": {
+      "stockNumber": "string",
+      "storeId": "string",
+      "storeName": "string",
+      "description": "string",
+      "miles": 0,
+      "displayPrice": 0,
+      "status": "string",
+      "isNew": true,
+      "lastMadeSaleableDate": "2023-03-10T06:00:00.504Z",
+      "lastUpdateDate": "2023-03-10T06:00:00.504Z",
+      "vin": "string",
+      "isTransferable": true,
+      "year": 0,
+      "make": "string",
+      "model": "string",
+      "trim": "string",
+      "transmission": "string",
+      "drive": "string",
+      "exteriorColor": "string",
+      "interiorColor": "string",
+      "keyFeatures": [
+        {
+          "name": "string",
+          "filename": "string"
+        }
+      ],
+      "photos": {
+        "photos": [
+          {
+            "photoType": "string",
+            "url": "string"
+          }
+        ],
+        "panoramas": [
+          {
+            "photoType": "string",
+            "url": "string"
+          }
+        ],
+        "exteriorThreeSixtyPhotos": [
+          {
+            "photoType": "string",
+            "url": "string"
+          }
+        ]
+      },
+      "isNewArrival": true,
+      "highlights": [
+        {
+          "name": "string",
+          "filename": "string"
+        }
+      ],
+      "mpgCity": 0,
+      "mpgHighway": 0,
+      "newTireCount": 0,
+      "engineSize": "string",
+      "engineCylinders": 0,
+      "lotLocation": "string",
+      "isMarkdown": true,
+      "currentMarkdown": 0,
+      "warranties": {
+        "maxCareLengthInMonths": 0,
+        "maxCareLengthInMiles": 0,
+        "manufacturer": "string"
+      },
+      "isComingSoon": true,
+      "featureScore": 0,
+      "featureScoreText": {
+        "title": "string",
+        "description": "string"
+      },
+      "featureSummaryStaticText": {},
+      "isOnRemoteLot": true
+    },
+
+    
+    "price": {
+      "displayPrice": 0
+    },
+    "vehicleStore": {
+      "id": "string",
+      "name": "string",
+      "marketNumber": "string",
+      "primaryPhoneNumber": "string",
+      "capabilities": [
+        "string"
+      ],
+      "stateAbbreviation": "string",
+      "showroomStatus": "string",
+      "showroomAlertMessage": "string",
+      "address": "string",
+      "city": "string",
+      "zipCode": "string"
+    },
+    "userStore": {
+      "id": "string",
+      "name": "string",
+      "marketNumber": "string",
+      "primaryPhoneNumber": "string",
+      "capabilities": [
+        "string"
+      ],
+      "stateAbbreviation": "string",
+      "showroomStatus": "string",
+      "showroomAlertMessage": "string",
+      "address": "string",
+      "city": "string",
+      "zipCode": "string"
+    },
+    "disclaimers": {
+      "disclaimers": [
+        "string"
+      ],
+      "shortFeeDisclaimer": "string"
+    },
+    "vehicleGuarantee": {
+      "title": "string",
+      "description": "string"
+    },
+    "vehicleGuaranteeV2": {
+      "title": "string",
+      "description": "string"
+    },
+    "transfer": {
+      "transferFee": 0,
+      "sla": 0,
+      "isTransferable": true,
+      "text": {
+        "full": "string",
+        "short": "string"
+      }
+    },
+    "favorites": {
+      "count": 0
+    },
+    "featuresAndSpecs": {
+      "features": [
+        {
+          "isOnPrimaryScreen": true,
+          "feature": "string"
+        }
+      ],
+      "specifications": [
+        {
+          "isOnPrimaryScreen": true,
+          "specification": {
+            "name": "string",
+            "value": "string"
+          }
+        }
+      ]
+    },
+    "leadInfo": {
+      "sections": [
+        {
+          "type": "string",
+          "text": "string"
+        }
+      ],
+      "options": [
+        {
+          "action": "string",
+          "storeId": "string",
+          "title": "string",
+          "subtitles": [
+            {
+              "text": "string",
+              "type": "string"
+            }
+          ],
+          "tags": [
+            "string"
+          ],
+          "interstitial": "string",
+          "analytics": {
+            "key": "string"
+          },
+          "group": 0
+        }
+      ],
+      "standaloneLead": {
+        "action": "string",
+        "storeId": "string",
+        "title": "string",
+        "subtitles": [
+          {
+            "text": "string",
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "string"
+        ],
+        "interstitial": "string",
+        "analytics": {
+          "key": "string"
+        }
+      },
+      "optionsHeading": "string",
+      "optionsButtonText": "string",
+      "callStoreInfo": {
+        "isEnabled": true,
+        "storeId": "string"
+      },
+      "financePrequalificationInfo": {
+        "isEnabled": true,
+        "storeId": "string"
+      }
+    },
+    "leadInfoV2": {
+      "options": [
+        {
+          "action": "string",
+          "storeId": "string",
+          "detailTitle": "string",
+          "detailDescription": "string",
+          "optionTitle": "string",
+          "optionSubtitle": "string",
+          "leadButtonText": "string",
+          "interstitial": "string",
+          "analytics": {
+            "additionalProp1": "string",
+            "additionalProp2": "string",
+            "additionalProp3": "string"
+          }
+        }
+      ],
+      "guaranteeText": "string"
+    },
+    "isReservedByUser": true,
+    "isFavorite": true,
+    "isHeld": true,
+    "isAvailable": true,
+    "carPageDisclaimers": [
+      "string"
+    ],
+    "expectedPurchaseStore": {
+      "id": "string",
+      "name": "string",
+      "marketNumber": "string",
+      "primaryPhoneNumber": "string",
+      "capabilities": [
+        "string"
+      ],
+      "stateAbbreviation": "string",
+      "showroomStatus": "string",
+      "showroomAlertMessage": "string",
+      "address": "string",
+      "city": "string",
+      "zipCode": "string"
+    }
+  }
