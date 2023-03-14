@@ -1,31 +1,48 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import logo from "../assets/images/Logo.png";
+import { SlLocationPin } from "react-icons/sl";
+import { FiUser } from "react-icons/fi";
 
 const Header = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [isWideScreen, setIsWideScreen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsWideScreen(true);
+      } else {
+        setIsWideScreen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  
   return (
     <header>
       <div className="container">
         <div className="logo-with-links">
           <a href="/">
-          <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" />
           </a>
 
           <div className="nav-links">
             <ul>
               <li>
-                <a href="shop">Car for Sells</a>
+                <a href="shop">{isWideScreen ? "Car for Sells" : "Shop"}</a>
               </li>
               <li>
-                <a href="sell">Sell Your Car</a>
+                <a href="sell">{isWideScreen ? "Sell Your Car" : "Sell"}</a>
               </li>
               <li>
                 <a href="finance">Finance</a>
               </li>
               <li>
-                <a href="saved">Saved Cars</a>
+                <a href="saved">{isWideScreen ? "Saved Cars" : "Saved"}</a>
               </li>
               <li>
                 <a href="">
@@ -36,23 +53,16 @@ const Header = () => {
           </div>
         </div>
         <div className="account-locaion">
-          {/* <label className="theme-switch" htmlFor="checkbox">
-            <input type="checkbox" id="checkbox" checked="true" />
-            <div className="slider round"></div>
-          </label> */}
-          <button className="button" onClick={toggleTheme}>
-            {theme === "light" ? "Light mode" : "Dark mode"}
-          </button>
+          <input type="checkbox" id="checkbox" onChange={toggleTheme} />
           <div className="location">
-            <i className="fa fa-location"></i>
-
-            <div className="">
+            <SlLocationPin  className="location-icon"/>
+            <div className="zip-location">
               <p> Near Store for 21229</p>
               <h5>Ellicot City</h5>
             </div>
           </div>
-          <div className="acccount">
-            <i className="fa fa-user"></i>
+          <div className="account">
+            <FiUser />
           </div>
         </div>
       </div>

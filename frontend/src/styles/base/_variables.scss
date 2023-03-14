@@ -1,69 +1,74 @@
-
 .App.light {
     // Text colors
     --txt-color-1: #fff;
-    --txt-color-2: #979C9E;
-    --navy: #002283;
-    --gold: #FFD31C;
+    --txt-color-2: #979c9e;
+    ----txt-color-3: #002283;
+    --txt-color-4: #ffd31c;
 
-    //bg colors 
-    --bg-color-1: #FFFFFF;
-    --bg-color-2: #2F5BC6;
-    --bg-color-3: linear-gradient(90deg, #1749C2 0%, #002283 100%);
+    //bg colors
+    --bg-color-1: #ffffff;
+    --bg-color-2: linear-gradient(90deg, #1749c2 0%, #002283 100%);
+    --bg-color-3: linear-gradient(90deg, #1749c2 0%, #002283 100%);
+    --bg-color-4: #fff;
+    --bg-color-5: #333f00;
+    --bg-color-img: linear-gradient(90deg, #174ac2e8 0%, #0023832d 100%), url(../../assets/images/car-13.png);
 
     // Card Colors
-    --card-background-1: #2F5BC6;
+    --card-background-1: linear-gradient(90deg, #1749c2 0%, #002283 100%);
     --card-background-2: #fff;
 
-
-
-
-    
-    // hover
-    --anchor-color: #4f3674;
-    --h1-background-color: #3c275a;
-    --h1-boarder-color: #d6a800;
-    --heading-background-color: #3c275a;
-    --heading-color: #fff;
-    --heading-boarder-color: #d6a800;
-    --anchor-hover-color: #4f3674;
-    --anchor-hover-background-color: #d6a800;
-    --card-title-color: #4f3674;
-    --btn-background-color: #4f3674;
-    --btn-color: #fff;
-    --btn-hover-background-color: #d6a800;
-    --btn-hover-color: #4f3674;
-    --input-boarder-color: #ccc;
-
-    /* week-4 Additional Styling Requirements style */
-    --table-header-background-color: #4f3674;
-    --table-header-color: #fff;
-    --table-border-color: #ddd;
-    --table-hover-background-color: #d6a800;
-    --table-hover-color: #4f3674;
-
-    // Primary Colors
-    --black: #000000;
+    // Toggler
     --white: #ffffff;
+    --black: #000000;
+    --reverseblack: #ffffff;
+    --reverseWhite: #000000;
+    --toggler-color: #2f5bc6;
 
-    // Secondary Colors
-    --silver: #c0c0c0;
-    --gold: #ffd700;
-    --bronze: #cd7f32;
+    // // hover
+    // --anchor-color: #4f3674;
+    // --h1-background-color: #3c275a;
+    // --h1-boarder-color: #d6a800;
+    // --heading-background-color: #3c275a;
+    // --heading-color: #fff;
+    // --heading-boarder-color: #d6a800;
+    // --anchor-hover-color: #4f3674;
+    // --anchor-hover-background-color: #d6a800;
+    // --card-title-color: #4f3674;
+    // --btn-background-color: #4f3674;
+    // --btn-color: #fff;
+    // --btn-hover-background-color: #d6a800;
+    // --btn-hover-color: #4f3674;
+    // --input-boarder-color: #ccc;
 
-    // Accent Colors
-    --blue: #537fe7;
-    --deep-blue: #181823;
-    --warm-blue: #c0eef2;
-    --light-blue: #e9f8f9;
-    --red: #c8102e;
-    --orange: #ff8c00;
-    --green: #228b22;
-    --purple: #4f3674;
+    // /* week-4 Additional Styling Requirements style */
+    // --table-header-background-color: #4f3674;
+    // --table-header-color: #fff;
+    // --table-border-color: #ddd;
+    // --table-hover-background-color: #d6a800;
+    // --table-hover-color: #4f3674;
 
-    // Neutral Colors
-    --gray: #808080;
-    --beige: #f5f5dc;
+    // // Primary Colors
+    // --black: #000000;
+    // --white: #ffffff;
+
+    // // Secondary Colors
+    // --silver: #c0c0c0;
+    // --gold: #ffd700;
+    // --bronze: #cd7f32;
+
+    // // Accent Colors
+    // --blue: #537fe7;
+    // --deep-blue: #181823;
+    // --warm-blue: #c0eef2;
+    // --light-blue: #e9f8f9;
+    // --red: #c8102e;
+    // --orange: #ff8c00;
+    // --green: #228b22;
+    // --purple: #4f3674;
+
+    // // Neutral Colors
+    // --gray: #808080;
+    // --beige: #f5f5dc;
 }
 /*
     dark theme root colors
@@ -71,70 +76,75 @@
 .App.dark {
     // Text colors
     --txt-color-1: #fff;
-    --txt-color-2: #979C9E;
+    --txt-color-2: #979c9e;
     --txt-color-3: #002283;
-    --txt-color-4: #FFD31C;
+    --txt-color-4: #ffd31c;
 
-    //bg colors 
+    //bg colors
     --bg-color-1: #000;
     --bg-color-2: #1e1e1e;
-    --bg-color-3: linear-gradient(90deg, #2b2b2b 0%, #050505 100%);
+    --bg-color-3: linear-gradient(90deg, #000312 0%, #050505 100%);
+    --bg-color-4: linear-gradient(90deg, #000312 0%, #050505 100%);
+    --bg-color-5: #1d2400;
+    --bg-color-img: linear-gradient(90deg, #000613 0%, #0023832d 100%), url(../../assets/images/car-13.png);
 
     // Card Colors
-    --card-background-1: #2F5BC6;
+    --card-background-1: linear-gradient(90deg, #000312 0%, #050505 100%);
     --card-background-2: #fff;
+    --toggler-color: #1e1e1e;
 
-
-
-
-
-
-    --text-color: #fafafa;
-    --background-color: #000;
-    --anchor-color: #fff;
-    --h1-background-color: #9c27b0;
-    --h1-boarder-color: #9c27b0;
-    --heading-background-color: #424242;
-    --heading-color: #fff;
-    --heading-boarder-color: #424242;
-    --anchor-hover-color: #d176e1;
-    --anchor-hover-background-color: #303030;
-    --card-background-color: #232323;
-    --card-title-color: #d176e1;
-    --btn-background-color: #d176e1;
-    --btn-color: #fff;
-    --btn-hover-background-color: #764787;
-    --btn-hover-color: #fff;
-    --input-boarder-color: #303030;
-
-    /* week-4 Additional Styling Requirements style */
-    --table-header-background-color: #d176e1;
-    --table-header-color: #fff;
-    --table-border-color: #303030;
-    --table-hover-background-color: #7d4787;
-    --table-hover-color: #fff;
     // Primary Colors
-    --black: #000000;
     --white: #ffffff;
+    --black: #000000;
+    --reverseblack: #030303;
+    --reverseWhite: #ffffff;
 
-    // Secondary Colors
-    --silver: #c0c0c0;
-    --gold: #ffd700;
-    --bronze: #cd7f32;
+    // --text-color: #fafafa;
+    // --background-color: #000;
+    // --anchor-color: #fff;
+    // --h1-background-color: #9c27b0;
+    // --h1-boarder-color: #9c27b0;
+    // --heading-background-color: #424242;
+    // --heading-color: #fff;
+    // --heading-boarder-color: #424242;
+    // --anchor-hover-color: #d176e1;
+    // --anchor-hover-background-color: #303030;
+    // --card-background-color: #232323;
+    // --card-title-color: #d176e1;
+    // --btn-background-color: #d176e1;
+    // --btn-color: #fff;
+    // --btn-hover-background-color: #764787;
+    // --btn-hover-color: #fff;
+    // --input-boarder-color: #303030;
 
-    // Accent Colors
-    --blue: #537fe7;
-    --deep-blue: #181823;
-    --warm-blue: #c0eef2;
-    --light-blue: #e9f8f9;
-    --red: #c8102e;
-    --orange: #ff8c00;
-    --green: #228b22;
-    --purple: #4f3674;
+    // /* week-4 Additional Styling Requirements style */
+    // --table-header-background-color: #d176e1;
+    // --table-header-color: #fff;
+    // --table-border-color: #303030;
+    // --table-hover-background-color: #7d4787;
+    // --table-hover-color: #fff;
+    // // Primary Colors
+    // --black: #000000;
+    // --white: #ffffff;
 
-    // Neutral Colors
-    $gray: #808080;
-    $beige: #f5f5dc;
+    // // Secondary Colors
+    // --silver: #c0c0c0;
+    // --gold: #ffd700;
+    // --bronze: #cd7f32;
+
+    // // Accent Colors
+    // --blue: #537fe7;
+    // --deep-blue: #181823;
+    // --warm-blue: #c0eef2;
+    // --light-blue: #e9f8f9;
+    // --red: #c8102e;
+    // --orange: #ff8c00;
+    // --green: #228b22;
+    // --purple: #4f3674;
+
+    // // Neutral Colors
+    // $gray: #808080;
+    // $beige: #f5f5dc;
 }
 
 // -----font-family-------------
@@ -150,27 +160,6 @@ $breakpoint-xl: 1200px;
 
 //---Default max width vtex checkout---
 $maxWidth: 1200px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // body {
 //     background: #651d1d;
@@ -343,5 +332,3 @@ $purple: #4f3674;
 // Neutral Colors
 $gray: #808080;
 $beige: #f5f5dc;
-
-

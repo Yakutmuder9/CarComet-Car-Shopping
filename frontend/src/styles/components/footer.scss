@@ -1,0 +1,97 @@
+footer {
+    @include place-item("center");
+    height: auto;
+    overflow-x: hidden;
+    background: var(--bg-color-3);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: var(--white);
+    border-top: 1px solid var(--txt-color-4);
+    border-bottom: 5px solid var(--txt-color-4);
+
+    .container {
+        display: block;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        @media (max-width: 768px) {
+            display: block;
+        }
+
+        .logWithemail {
+            @include place-item("between");
+            margin-bottom: 30px;
+            @media (max-width: 768px) {
+                display: block;
+            }
+            .foot-logo {
+                width: 100%;
+            }
+            .foot-email {
+                width: 100%;
+                align-items: end;
+                input {
+                    width: 75%;
+                    height: 40px;
+                    padding: 10px 20px;
+                }
+                button {
+                    width: 25%;
+                    height: 40px;
+                    border: 2px solid var(--txt-color-4);
+                    background: var(--txt-color-4);
+                    padding: 10px 20px;
+                }
+                @media (max-width: 768px) {
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .socialWithSite {
+            @include place-item("between");
+            @media (max-width: 768px) {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .foot-social {
+                .social-media {
+                    display: flex;
+                    height: 50px;
+                    padding-top: 10px;
+                    padding-left: 10px;
+                    svg {
+                        scale: 2;
+                        margin-right: 40px;
+                    }
+                }
+                .app-downlod {
+                    display: block;
+                    img {
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .foot-site {
+                @media (max-width: 768px) {
+                    display: block;
+                    margin-top: 30px;
+                }
+                .site-links {
+                    a {
+                        color: var(--txt-color-4) !important;
+                        margin-right: 12px;
+                    }
+                }
+
+                .campany-copyright {
+                    margin-top: 20px;
+                    P{
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

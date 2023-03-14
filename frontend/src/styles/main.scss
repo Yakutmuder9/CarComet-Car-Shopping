@@ -2,9 +2,14 @@
 @import "./base/typology";
 
 @import "./components/header.scss";
+@import "./components/footer.scss";
 
 @import "./pages/home.scss";
-@import "./pages/cars.scss";
+@import "./pages/shop.scss";
+@import "./pages/sell.scss";
+@import "./pages/finance.scss";
+@import "./pages/saved.scss";
+
 
 *,
 ::before,
@@ -15,6 +20,9 @@
     scroll-behavior: smooth;
     list-style: none;
     text-decoration: none;
+    @media(max-width: 720px){
+        font-size: 95%;
+    }
 }
 
 /*---Side Scroll Bar ---*/
@@ -37,11 +45,14 @@ body {
     height: 100vh;
     overflow-x: hidden;
     background-color: var(--bg-color);
+
+   
 }
 
 .App {
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    overflow-y: scroll;
     font-family: "Oswald", Verdana, Arial, sans-serif;
     color: var(--text-color);
     background: var(--background-color);

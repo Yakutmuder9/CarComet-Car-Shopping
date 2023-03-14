@@ -18,7 +18,6 @@ import {
 } from "./pages/index";
 import { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
-import PrivateScreens from "./pages/PrivateScreens";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -47,9 +46,8 @@ const App = () => {
             <Route element={<PrivateRoutes />}>
               {/* -------private custormers-routes--------- */}
 
-              <Route path="user" element={<PrivateScreens />}>
-                <Route path="saved" element={<SavedCars />} />
-              </Route>
+              <Route path="saved" element={<SavedCars />} />
+
               {/* -------private employee-routes--------- */}
             </Route>
 

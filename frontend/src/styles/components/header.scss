@@ -1,7 +1,7 @@
 header {
     @include place-item("center");
     height: 75px !important;
-    overflow: hidden;
+    overflow-x: hidden;
     .container {
         .logo-with-links {
             display: flex;
@@ -27,11 +27,107 @@ header {
                         border-bottom: 2px solid var(--gold);
                     }
                 }
+
+                @media(max-width: 768px){
+                    display: none;
+                }
             }
         }
+
+
         .account-locaion {
             display: flex;
 
+            #checkbox {
+                position: relative;
+                appearance: none;
+                outline: none;
+                width: 90px;
+                height: 40px;
+                scale: 0.6;
+                border-radius: 20px;
+                background: var(--toggler-color);
+                box-shadow: none;
+                cursor: pointer;
+                overflow: hidden;
+                transition: 0.3s ease-in-out;
+            }
+
+            #checkbox:checked {
+                background: var(--toggler-color);
+            }
+
+            #checkbox::before {
+                content: "";
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                border-radius: inherit;
+                width: 36px;
+                height: 36px;
+                background: var(--txt-color-4);
+                transition: inherit;
+            }
+
+            #checkbox::after {
+                content: "";
+                position: absolute;
+                top: -6px;
+                right: calc(100% + 36px);
+                border-radius: inherit;
+                width: 36px;
+                height: 36px;
+                background: #2F5BC6;
+                transition: inherit;
+            }
+
+            #checkbox:checked::before {
+                left: calc(100% - 38px);
+                background: #cccccc;
+            }
+
+            #checkbox:checked::after {
+                right: 12px;
+                background: var(--toggler-color);
+            }
+            .location {
+                width: auto;
+                margin: auto 5px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                color: #c3c3c3;
+
+              
+
+                .location-icon {
+                    color: var(--txt-color-4);
+                    font-size: 4vmin;
+                }
+                .zip-location {
+                    margin-left: 12px;
+                    p {
+                        font-size: 10px;
+                    }
+
+                    &:hover {
+                        border-bottom: 2px solid var(--txt-color-4);
+                    }
+                }
+            }
+            .account{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #f7fbff;
+                width: 35px;
+                height: 35px;
+                border-radius: 50px;
+                margin-left: 12px;
+                color: rgb(0, 28, 139);
+                cursor: pointer;
+                
+            }
         }
     }
 }

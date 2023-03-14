@@ -1,0 +1,33 @@
+.shop-page {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    background: #000;
+
+    .first-view {
+        @include place-item("center");
+        height: auto;
+        flex-direction: column;
+        background: var(--bg-color-3);
+        overflow: visible;
+
+        .search-cars-field {
+            width: 100%;
+            background: #d32a2a;
+        }
+    }
+    .second-view {
+        @include place-item("center");
+        height: 200px;
+        flex-direction: column;
+        background: var(--bg-color-3);
+        overflow: visible;
+    }
+    .third-view {
+        @include place-item("center");
+        height: 200px;
+        flex-direction: column;
+        background: var(--bg-color-3);
+        overflow: visible;
+    }
+}

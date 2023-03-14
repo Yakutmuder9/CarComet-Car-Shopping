@@ -1,40 +1,322 @@
 .home-page {
     width: 100%;
-    height: 400vh;
-    // background: var(--bg-color-1);
+    height: auto;
+    overflow-x: hidden;
 
+    // ------------second-view-------------
     .first-view {
         @include place-item("center");
-        height: 100vh;
+        height: auto;
         flex-direction: column;
         background: var(--bg-color-3);
-
-        .trapizum {
-            @include place-item("center");
-            width: 96%;
-            height: 100%;
-            background: var(--bg-color-2);
-            max-width: 1400px;
-            border-radius: 45px;
-            clip-path: polygon(0% 0%, 5% 100%, 95% 100%, 100% 0%);
-        }
+        overflow: visible;
     }
+
+    // ------------second-view-------------
     .second-view {
         @include place-item("center");
-        height: 100vh;
+        height: auto;
+        min-height: 600px;
         flex-direction: column;
-        background: #bec795;
+        width: 100%;
+        background: var(--bg-color-img);
+        background-size: cover;
+        background-position: center;
+
+       
+        @media (max-width: 992px) {
+            height: 600px;
+        }
+
+        .home-txt {
+            text-align: center;
+            color: var(--white);
+            font-size: 25px;
+            margin-top: 25px;
+            width: 60%;
+            top: 140px;
+            position: absolute;
+
+            @media (max-width: 762px) {
+                width: 95%;
+                font-size: 20px;
+            }
+            @media (max-width: 992px) {
+                width: 90%;
+            }
+        }
+
+        .action-with-cars {
+            @include place-item("around");
+            width: 100%;
+            max-width: 1200px;
+
+            .circle-img {
+                scale: 0.4;
+                position: absolute;
+                transform: translate(-80vw, -350px);
+                // @media (max-width: 992px) {
+                // }
+            }
+            .used-car-search-by {
+                width: 60%;
+                height: 65%;
+                position: absolute;
+                background: #614343;
+
+                @media (max-width: 992px) {
+                    width: 100%;
+                }
+            }
+        }
+
+        .used-car-real-offer {
+            width: 65%;
+            height: auto;
+            border-radius: 15px;
+            position: absolute;
+            top: 600px;
+            transition: all 0.3s ease-in-out;
+            background: var(--bg-color-4);
+            box-shadow: #00000026 0px 3px 3px 0px;
+
+            @media (max-width: 992px) {
+                width: 90%;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 5%;
+                .field-container {
+                    @include place-item("between");
+                    gap: 15px;
+                    padding: 20px;
+                    margin: 10px;
+                    .card-box {
+                        width: 100%;
+                        padding: 2.5vmin;
+                        text-align: center;
+                        color: var(--txt-color-4);
+                        background: var(--bg-color-2);
+                        border-radius: 8px;
+                        word-wrap: none;
+                        font-size: 2.7vmin;
+                        cursor: pointer;
+                        transition: 0.5s ease-in-out;
+
+                        &:hover {
+                            opacity: 70%;
+                        }
+                        &:active {
+                            transform: 3s ease-in-out;
+                            border-bottom: 2px solid var(--txt-color-4);
+                        }
+                    }
+                }
+                p,h2,h3 {
+                    margin-bottom: 20px;
+                    color: var(--reverseWhite);
+                }
+                .selected-field {
+                    height: auto;
+                    width: 100%;
+                    display: block;
+                    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+                    &.popout {
+                        animation: fadeIn 3s ease-in-out forwards;
+                    }
+
+                    @keyframes fadeIn {
+                        from {
+                            opacity: 0;
+                        }
+                        to {
+                            opacity: 1;
+                        }
+                    }
+
+                    @media (min-width: 992px) {
+                        width: 60%;
+                    }
+                    .by-plate,
+                    .by-vin,
+                    .by-make {
+                        input,
+                        select {
+                            padding: 12px 20px;
+                            border-radius: 8px;
+                            width: 100%;
+                            margin-bottom: 15px;
+                            border: 1px solid darkblue;
+                        }
+                        option {
+                            background: var(--bg-color-1);
+                            color: var(--txt-color-2);
+                            padding: 2px 5px;
+                        }
+                        form {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+                }
+                // button {
+                //     background: var(--txt-color-4);
+                //     color: #021166;
+                //     scale: 1.4;
+                //     padding: 12px 20vmin;
+                //     text-align: center;
+                //     margin-top: 4vmin;
+                //     margin-bottom: 12px;
+
+                //     @media (max-width: 992px) {
+                //         width: 60%;
+                //         padding: 0;
+                //         font-size: 2vmin;
+                //         padding: 2vmin 4vmin;
+                //     }
+                // }
+            }
+        }
     }
+
+    // ------------second-view-------------
     .third-view {
         @include place-item("center");
-        height: 100vh;
+        height: auto;
+        min-height: 600px;
         flex-direction: column;
-        background: #fbf4c7;
+        color: var(--white);
+        padding-top: 350px;
+        padding-bottom: 20px;
+        background: var(--reverseblack);
+        @media (min-width: 768px) {
+            padding-top: 420px;
+        }
+        .container {
+            // transform: translateY(50%);
+            display: block;
+        }
+        .card-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+            .car-card {
+                cursor: pointer;
+                width: 100%;
+                margin-top: 20px;
+                position: relative;
+                .card-txt {
+                    position: absolute;
+                    z-index: 4;
+                    padding-left: 3vmin;
+                    color: var(--white);
+                    font-size: 2.5vmin;
+                    transform: translateY(-200%);
+                }
+                img {
+                    width: 100%;
+                    position: relative;
+                    z-index: 1;
+                    max-height: 300px;
+                    border-radius: 14px;
+                }
+                p {
+                    font-size: 2.5vmin;
+                    z-index: 3;
+                }
+            }
+        }
     }
+    // ------------fourth-view-------------
     .fourth-view {
         @include place-item("center");
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
         flex-direction: column;
-        background: #fbeac7;
+        color: var(--white);
+        background: var( --card-background-1);
+        // background: var(--reverseblack);
+        padding: 10vmin 0;
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            @media (max-width: 768px) {
+                display: block;
+            }
+            .affordable-car-txt {
+                width: 100%;
+                padding-right: 20px;
+                padding-bottom: 40px;
+                h4 {
+                    margin-bottom: 20px;
+                }
+                p {
+                    margin-bottom: 20px;
+                }
+            }
+            .affordable-car-img {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    // ------------fourth-view-------------
+    .fivth-view {
+        @include place-item("center");
+        height: auto;
+        min-height: 100vh;
+        flex-direction: column;
+        background: var(--bg-color-4);
+        color: var( --reverseWhite);
+        .fivth-header {
+            padding: 40px 10px;
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+        }
+        .research-car-txt {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding-top: 5%;
+            text-align: left;
+            padding-bottom: 10%;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+            .card {
+                display: flex;
+                // background: linear-gradient(83.59deg, #fbfcd7 36.52%, rgba(170, 181, 253, 0.83) 98.8%) !important;
+                background: none!important;
+                img {
+                    width: 80px;
+                }
+                @media (max-width: 768px) {
+                    margin-bottom: 20px;
+                }
+                .card-body {
+                    text-align: start;
+                    padding-left: 5px;
+
+                    h1, p{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
     }
 }
