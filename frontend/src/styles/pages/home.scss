@@ -55,8 +55,6 @@
                 scale: 0.4;
                 position: absolute;
                 transform: translate(-80vw, -350px);
-                // @media (max-width: 992px) {
-                // }
             }
             .used-car-search-by {
                 width: 60%;
@@ -163,22 +161,7 @@
                         }
                     }
                 }
-                // button {
-                //     background: var(--txt-color-4);
-                //     color: #021166;
-                //     scale: 1.4;
-                //     padding: 12px 20vmin;
-                //     text-align: center;
-                //     margin-top: 4vmin;
-                //     margin-bottom: 12px;
-
-                //     @media (max-width: 992px) {
-                //         width: 60%;
-                //         padding: 0;
-                //         font-size: 2vmin;
-                //         padding: 2vmin 4vmin;
-                //     }
-                // }
+            
             }
         }
     }
@@ -197,7 +180,6 @@
             padding-top: 420px;
         }
         .container {
-            // transform: translateY(50%);
             display: block;
         }
         .card-container {
@@ -244,7 +226,6 @@
         flex-direction: column;
         color: var(--white);
         background: var( --card-background-1);
-        // background: var(--reverseblack);
         padding: 10vmin 0;
         h1 {
             text-align: center;
