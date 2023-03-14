@@ -4,9 +4,10 @@ import {
   AiFillTwitterSquare,
 } from "react-icons/ai";
 import { BsLinkedin } from "react-icons/bs";
+import { appstore, googleplay } from "../assets/images/index";
 
 const Footer = () => {
-  console.log(AiFillFacebook);
+  
   return (
     <footer>
       <div className="container">
@@ -30,9 +31,9 @@ const Footer = () => {
             <div className="app-downlod">
               <h4>Download our app</h4>
               <br />
-              <div className="">
-                <img src="https://venom-assets.edmunds-media.com/66f7053f1eb488bf0798b46bc3b85c1e.svg" />
-                <img src="https://venom-assets.edmunds-media.com/abd94dc7b36be42338a142620eb4bcf2.svg" />
+              <div className="download-icon">
+                <img src={appstore} alt="" />
+                <img src={googleplay} alt="" />
               </div>
             </div>
           </div>

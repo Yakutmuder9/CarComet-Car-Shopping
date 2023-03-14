@@ -21,6 +21,8 @@ import car18 from "./car-18.png";
 import car19 from "./car-19.png";
 import deal from "./deal.mp4";
 import Icon1 from "./icon-1.png";
+import appstore from "./apple.png";
+import googleplay from "./android.png";
 
 export {
   circlebtn,
@@ -46,4 +48,6 @@ export {
   car19,
   deal,
   Icon1,
+  appstore,
+  googleplay,
 };
