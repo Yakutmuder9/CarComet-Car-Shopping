@@ -1,8 +1,6 @@
 .shop-page {
     width: 100%;
     height: auto;
-    overflow-x: hidden;
-    background: #000;
 
     .first-view {
         @include place-item("center");
@@ -10,24 +8,155 @@
         flex-direction: column;
         background: var(--bg-color-3);
         overflow: visible;
+        position: relative;
+        padding-bottom: 10px;
 
         .search-cars-field {
             width: 100%;
             background: #d32a2a;
         }
     }
+    .filter-toggler {
+        @include place-item("center");
+        width: 100%;
+        height: 40px;
+        background: var(--reverseblack);
+        box-shadow: var(--card-box-shadow);
+        position: sticky;
+        top: 0;
+        padding: 0 10px;
+        svg {
+            cursor: pointer;
+        }
+        .container {
+            @include place-item("between");
+            .toggler {
+                color: var(--reverseWhite);
+            }
+            .best-match {
+                select {
+                    padding: 5px 10px;
+                    border-radius: 3px;
+                    background: var(--reverseblack);
+                    color:var(--reverseWhite) ;
+                }
+            }
+        }
+    }
     .second-view {
         @include place-item("center");
-        height: 200px;
-        flex-direction: column;
-        background: var(--bg-color-3);
-        overflow: visible;
+        height: auto;
+        // background: var(--bg-color-3);
+        background: var(--reverseblack);
+
+        .container {
+            width: 100%;
+            height: auto;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .car-filter-sidenav {
+            width: 350px;
+            height: 100%;
+            padding: 20px 10px;
+            margin-top: 20px;
+            color: var(--reverseWhite);
+            background: var(--reverseblack);
+            box-shadow: var(--card-box-shadow);
+            margin-bottom: 40px;
+
+            @media (max-width: 792px) {
+                display: none;
+            }
+            * {
+                &:hover {
+                    background: #c4cbff14;
+                }
+            }
+            .by-condtion {
+                width: 100%;
+                margin-bottom: 10px;
+                transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                button {
+                    height: 40px;
+                    width: 60px;
+                    width: 33.3%;
+                    cursor: pointer;
+                    color: var(--reverseWhite);
+                    background: var(--reverseblack);
+                    border: 1px solid silver;
+                }
+            }
+
+            .by-distance {
+                .distance-card {
+                    border-radius: 0px;
+                }
+            }
+            .toggler {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                height: 50px;
+                border-bottom: 1px solid #00043169;
+                select {
+                    width: 50%;
+                    padding: 5px 2px;
+                }
+            }
+            .by-price {
+                &.expand {
+                    border: 1px solid silver;
+                }
+            }
+            input {
+                width: 100%;
+                height: 30px;
+            }
+
+            .body-label {
+                background: #cfd7ff41;
+                color: var();
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .input-filed {
+                    padding: 0 15px;
+                    input {
+                        scale: 1.4;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+
+        .filted-cars {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 20px 0px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-gap: 20px;
+
+            .car-card {
+                background: var(--card-background-3);
+                height: 300px;
+                border-radius: 25px;
+                box-shadow: var(--card-box-shadow);
+                padding: 20px 15px;
+                cursor: pointer;
+            }
+        }
     }
     .third-view {
         @include place-item("center");
         height: 200px;
         flex-direction: column;
-        background: var(--bg-color-3);
+        // background: var(--bg-color-3);
+
         overflow: visible;
     }
 }
