@@ -65,8 +65,10 @@ const AccordionItem = (props) => {
     <div className="accordion">
       <div className="toggler" onClick={onToggle}>
         <label htmlFor="labelTitle">{data.title}</label>
+
         <div className="labeltitle">
           <span>
+            
             {filteredSearchState.map((item, i) => (
               <small key={i}>{item.value}</small>
             ))}
@@ -144,7 +146,7 @@ const AccordionItem = (props) => {
 
                   {showAll && (
                     <>
-                      {data.submenu.map((list) => (
+                      {data.submenu.slice(5).map((list) => (
                         <div className="checkbox-field" key={list.id}>
                           <small>
                             {list.name}({list.total})
@@ -152,11 +154,11 @@ const AccordionItem = (props) => {
                           <input
                             type="checkbox"
                             name={list.name}
-                            id={list.id}
+                            id={item.id}
                             value={list.name}
                             checked={list.checked}
                             onChange={(e) =>
-                              handleInputChange(e, item.id, list.id)
+                              handleInputChange(e,  list.id)
                             }
                           />
                         </div>
@@ -176,13 +178,19 @@ const AccordionItem = (props) => {
 const SideNav = () => {
   const [searchState, setSearchState] = useState(initialSearchState);
   const [isOpen, setIsOpen] = useState(initialToggleState);
+  const togglerRef = useRef(null);
 
   //car condition
   const [activeTab, setActiveTab] = useState(1);
-  const tabNames = ["New", "Used", "Cirtified"];
+  const tabNames = ["Used", "New", "Cirtified"];
 
-  const handleTabClick = (index) => {
+ 
+  const handleTabClick = (index, tabName) => {
     setActiveTab(index);
+    const newState = [...initialSearchState];
+    console.log("old", newState[13] );
+    newState[13].value = tabName;
+    console.log("changed", newState);
   };
 
   const handleToggle = (index) => {
@@ -212,9 +220,21 @@ const SideNav = () => {
     // const { name, value } = event.target;
     // setSearchState({ ...searchState, [name]: value });
   };
-
+ useEffect(() => {
+    function handleClickOutside(event) {
+      const toggler = togglerRef.current;
+      if (isOpen && toggler && !toggler.contains(event.target)) {
+        const updatedisOpenState = Array(initialToggleState.length).fill(false);
+        setIsOpen(updatedisOpenState);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
   return (
-    <div className="car-filter-sidenav">
+    <div className="car-filter-sidenav" ref={togglerRef}>
       <div className="by-condtion">
         {tabNames.map((tabName, index) => (
           <button
@@ -224,7 +244,7 @@ const SideNav = () => {
               background: activeTab === index + 1 ? "#FFD31C" : "",
               color: activeTab === index + 1 ? "#000" : "",
             }}
-            onClick={() => handleTabClick(index + 1)}
+            onClick={() => handleTabClick((index + 1), tabName)}
           >
             {tabName}
           </button>

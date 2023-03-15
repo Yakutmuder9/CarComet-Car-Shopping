@@ -155,25 +155,25 @@ export const bodyStyleData = [
     checked: false,
   },
   {
-    id: 7,
+    id: 6,
     name: "Coupe",
     total: "123",
     checked: false,
   },
   {
-    id: 8,
+    id: 7,
     name: "Convertible",
     total: "122",
     checked: false,
   },
   {
-    id: 9,
+    id: 8,
     name: "Van",
     total: "167",
     checked: false,
   },
   {
-    id: 10,
+    id: 9,
     name: "Chassis",
     total: "24",
     checked: false,
@@ -370,7 +370,7 @@ export const sideNavData = [
     submenu: otherOptions,
     component: "checkbox",
     label: "Other Options",
-  },
+  }
 ];
 
 export const initialSearchState = [
@@ -402,62 +402,7 @@ export const initialSearchState = [
   {
     id: 6,
     value: "Any Style",
-    status: [
-      {
-        id: 1,
-        name: "SUV",
-        total: "250",
-        checked: false,
-      },
-      {
-        id: 2,
-        name: "Sedan",
-        total: "1250",
-        checked: false,
-      },
-      {
-        id: 3,
-        name: "Pickup",
-        total: "2000",
-        checked: false,
-      },
-      {
-        id: 4,
-        name: "Hatchback",
-        total: "1200",
-        checked: false,
-      },
-      {
-        id: 5,
-        name: "Minivan",
-        total: "120",
-        checked: false,
-      },
-      {
-        id: 7,
-        name: "Coupe",
-        total: "123",
-        checked: false,
-      },
-      {
-        id: 8,
-        name: "Convertible",
-        total: "122",
-        checked: false,
-      },
-      {
-        id: 9,
-        name: "Van",
-        total: "167",
-        checked: false,
-      },
-      {
-        id: 10,
-        name: "Chassis",
-        total: "24",
-        checked: false,
-      },
-    ],
+    status: bodyStyleData,
     title: "Body Style",
   },
   {
@@ -501,5 +446,10 @@ export const initialSearchState = [
     value: "",
     status: otherOptions,
     title: "Other Options",
+  },
+  {
+    id: 14,
+    value: "Used",
+    title: "Condition",
   },
 ];
