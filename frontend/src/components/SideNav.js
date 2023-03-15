@@ -1,77 +1,366 @@
 import { useEffect, useRef, useState } from "react";
-import { MdLocationOn } from "react-icons/md";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
-import { marks, carMakes, bodyStyleData } from "../assets/base/data";
+import { MdLocationOn } from "react-icons/md";
+import {
+  carMakes,
+  bodyStyleData,
+  carEngineTypes,
+  carFuelTypes,
+  carTransmissionTypes,
+  drivetrains,
+  bodyColors,
+  interiorColors,
+  otherOptions,
+  yearsArray,
+} from "../assets/base/data";
+
+const sideNavData = [
+  {
+    id: 1,
+    title: "Location",
+    submenu: {
+      title: "distacnce with in",
+      min: 0,
+      max: 1500,
+    },
+    component: "range",
+    label: "distance",
+  },
+  {
+    id: 2,
+    title: "Selected Make",
+    submenu: carMakes,
+    component: "select",
+    label: "Make",
+  },
+  {
+    id: 3,
+    title: "Year",
+    submenu: yearsArray,
+    component: "select",
+    label: "select year",
+  },
+  {
+    id: 4,
+    title: "Price",
+    submenu: {},
+    component: "range",
+    label: "max price",
+  },
+  {
+    id: 5,
+    title: "Milage",
+    submenu: {},
+    component: "range",
+    label: "max mileage",
+  },
+  {
+    id: 6,
+    title: "Body Style",
+    submenu: bodyStyleData,
+    component: "checkbox",
+    label: "choose body style",
+  },
+  {
+    id: 7,
+    title: "Engine type",
+    submenu: carEngineTypes,
+    component: "checkbox",
+    label: "Engine",
+  },
+  {
+    id: 8,
+    title: "Fule Type",
+    submenu: carFuelTypes,
+    component: "checkbox",
+    label: "Fuel Type",
+  },
+  {
+    id: 9,
+    title: "Transmission",
+    submenu: carTransmissionTypes,
+    component: "checkbox",
+    label: "Transmission",
+  },
+  {
+    id: 10,
+    title: "Drivetrain",
+    submenu: drivetrains,
+    component: "checkbox",
+    label: "Drivetrain",
+  },
+  {
+    id: 11,
+    title: "Body Color",
+    submenu: bodyColors,
+    component: "checkbox",
+    label: "Body Color",
+  },
+  {
+    id: 12,
+    title: "Interior Color",
+    submenu: interiorColors,
+    component: "checkbox",
+    label: "Interior Color",
+  },
+  {
+    id: 13,
+    title: "Other Options",
+    submenu: otherOptions,
+    component: "checkbox",
+    label: "Other Options",
+  },
+];
+
+const initialToggleState = Array(sideNavData.length).fill(false);
+
+const initialSearchState = [
+  {
+    id: 1,
+    value: 100,
+    title: "Location",
+  },
+  {
+    id: 2,
+    value: "All",
+    title: "Selected Make",
+  },
+  {
+    id: 3,
+    value: 2000,
+    title: "Year",
+  },
+  {
+    id: 4,
+    value: "Any Price",
+    title: "Price",
+  },
+  {
+    id: 5,
+    value: "Any Mileage",
+    title: "Milage",
+  },
+  {
+    id: 6,
+    value: "Any Style",
+    checked: false,
+    title: "Body Style",
+  },
+  {
+    id: 7,
+    value: "",
+    checked: false,
+    title: "Engine type",
+  },
+  {
+    id: 8,
+    value: "",
+    checked: false,
+    title: "Fule Type",
+  },
+  {
+    id: 9,
+    value: "",
+    checked: false,
+    title: "Transmission",
+  },
+  {
+    id: 10,
+    value: "",
+    checked: false,
+    title: "Drivetrain",
+  },
+  {
+    id: 11,
+    value: "",
+    checked: false,
+    title: "Body Color",
+  },
+  {
+    id: 12,
+    value: "",
+    checked: false,
+    title: "Interior Color",
+  },
+  {
+    id: 13,
+    value: "",
+    checked: false,
+    title: "Other Options",
+  },
+];
+function AccordionItem(props) {
+  const { isOpen, onToggle, data, onSearchChange, searchState } = props;
+  const [showAll, setShowAll] = useState(false);
+
+  const filteredSearchState = searchState.filter((item) => item.id === data.id);
+
+  const handleInputChange = (event) => {
+    const { id, value, checked, type } = event.target;
+    const newState = [...searchState];
+    const index = newState.findIndex((item) => item.id === Number(id));
+
+    if (index !== -1) {
+      if (type === "checkbox") {
+        newState[index].checked = checked;
+      } else {
+        console.log("val");
+        newState[index].value = value;
+        console.log("valu", newState);
+      }
+      onSearchChange(newState);
+    }
+  };
+  console.log(searchState);
+
+  return (
+    <div className="accordion">
+      <div className="toggler" onClick={onToggle}>
+        <label htmlFor="labelTitle">{data.title}</label>
+        <div className="labeltitle">
+          <span>
+            {filteredSearchState.map((item, i) => (
+              <small key={i}>{item.value}</small>
+            ))}
+          </span>{" "}
+          {isOpen ? <BiChevronUp /> : <BiChevronDown />}
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="submenu">
+          {filteredSearchState.map((item) => (
+            // cheack the filed types
+            <div key={item.id} className={data.component}>
+              {data.component === "select" && (
+                <div className="select-field">
+                  <small htmlFor="selectlab">{data.label}</small>
+                  <select
+                    className="select"
+                    name={item.id}
+                    id={item.id}
+                    value={item.value}
+                    onChange={handleInputChange}
+                  >
+                    {data.submenu.map((choic) => (
+                      <option key={choic.id} value={choic.value}>
+                        {choic.value}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {data.component === "range" && (
+                <div className="range-slider-container">
+                  <small>{data.label}</small>
+                  <input
+                    type="range"
+                    min="0"
+                    max="2500"
+                    step="5"
+                    id={item.id}
+                    value={item.value}
+                    onChange={handleInputChange}
+                    className="range-slider"
+                  />
+                </div>
+              )}
+
+              {data.component === "checkbox" && (
+                <>
+                  {data.submenu.slice(0, 5).map((list) => (
+                    <div className="checkbox-field" key={list.id}>
+                      <small>
+                        {list.name}({list.total})
+                      </small>
+                      <input
+                        type="checkbox"
+                        name={list.name}
+                        id={item.id}
+                        value={list.name}
+                        checked={item.checked}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+                  ))}
+
+                  {!showAll && (
+                    <small
+                      onClick={() => setShowAll(true)}
+                      className="see-more"
+                    >
+                      See more ..
+                    </small>
+                  )}
+
+                  {showAll && (
+                    <>
+                      {data.submenu.map((list) => (
+                        <div className="checkbox-field" key={list.id}>
+                          <small>
+                            {list.name}({list.total})
+                          </small>
+                          <input
+                            type="checkbox"
+                            name={list.name}
+                            id={list.id}
+                            checked={item.checked}
+                            onChange={handleInputChange}
+                          />
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 const SideNav = () => {
-  const [distance, setDistance] = useState(0);
-  const [price, setPrice] = useState("All Price");
-  const [milage, setMilage] = useState("Any Milage");
-  const [bodyStyle, setBodyStyle] = useState(0);
-  const [activeTab, setActiveTab] = useState(1);
-  const tabNames = ["New", " Used", "Cirtified"];
-  const [selectedMake, setSelectedMake] = useState("");
-  const [year, setYear] = useState("");
-  const togglerRef = useRef(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isMileExpanded, setIsMileExpanded] = useState(false);
-  const [isBodyStyleExpanded, setIsBodyStyleExpanded] = useState(false);
-  const now = new Date();
-  const currentYear = now.getFullYear();
-  const years = Array.from({ length: currentYear - 1999 }, (_, i) => 2000 + i);
+  const [searchState, setSearchState] = useState(initialSearchState);
+  const [isOpen, setIsOpen] = useState(initialToggleState);
 
-  const handleMakeChange = (event) => {
-    setSelectedMake(event.target.value);
-  };
-  const handleChange = (event) => {
-    setDistance(event.target.value);
-  };
-  const handleYearChange = (event) => {
-    setYear(event.target.value);
-  };
-  const handlePriceChange = (event) => {
-    setPrice(event.target.value);
-  };
-  const handleMilageChange = (event) => {
-    setMilage(event.target.value);
-  };
-  const handleBodyStyleChange = (event) => {
-    setBodyStyle(event.target.value);
-  };
+  //car condition
+  const [activeTab, setActiveTab] = useState(1);
+  const tabNames = ["New", "Used", "Cirtified"];
 
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
-  const handleToggleClick = () => {
-    setIsExpanded(!isExpanded);
-  };
-  const handleMileToggleClick = () => {
-    setIsMileExpanded(!isMileExpanded);
-  };
-  const handleBodyStyleToggleClick = () => {
-    setIsBodyStyleExpanded(!isBodyStyleExpanded);
+
+  const handleToggle = (index) => {
+    const newIsOpen = [...isOpen];
+    newIsOpen[index] = !newIsOpen[index];
+    setIsOpen(newIsOpen);
   };
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      const toggler = togglerRef.current;
+  // handle all search change
+  const handleSearchChange = (event, id) => {
+    const { value } = event.target;
 
-      if (isExpanded && toggler && !toggler.contains(event.target)) {
-        setIsExpanded(false);
-      }
-      if (isMileExpanded && toggler && !toggler.contains(event.target)) {
-        setIsMileExpanded(false);
-      }
-    }
+    setSearchState((prevState) => {
+      // Find the index of the item to update
+      const index = prevState.findIndex((item) => item.id === id);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isExpanded, isMileExpanded]);
+      // Create a new array with the updated item
+      const newState = [
+        ...prevState.slice(0, index),
+        { ...prevState[index], value },
+        ...prevState.slice(index + 1),
+      ];
+
+      return newState;
+    });
+  };
 
   return (
-    <div className="car-filter-sidenav" ref={togglerRef}>
+    <div className="car-filter-sidenav">
       <div className="by-condtion">
         {tabNames.map((tabName, index) => (
           <button
@@ -87,288 +376,16 @@ const SideNav = () => {
           </button>
         ))}
       </div>
-      <div className="by-distance">
-        <div className="distance-card">
-          <p>
-            <strong>
-              <MdLocationOn /> Location
-            </strong>{" "}
-            <br /> with in {distance} mile
-          </p>
-          <div className="range-slider-container">
-            <input
-              type="range"
-              min="0"
-              max="2500"
-              step="5"
-              value={distance}
-              onChange={handleChange}
-              className="range-slider"
-              list="tickmarks"
-            />
-            <datalist id="tickmarks">
-              {marks.map((mark) => (
-                <option key={mark.value} value={mark.value}>
-                  {mark.label}
-                </option>
-              ))}
-            </datalist>
-          </div>
-        </div>
-      </div>{" "}
-      <div className="by-make">
-        <div className="toggler">
-          <label htmlFor="car-select">Make</label>
-          <select
-            id="car-select"
-            name="car-make"
-            value={selectedMake}
-            onChange={handleMakeChange}
-          >
-            <option value="">All Makes</option>
-            {carMakes.map((make) => (
-              <option key={make} value={make}>
-                {make}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="by-year">
-        <div className="toggler">
-          <label htmlFor="car-year">Year</label>
-          <select name="car-year" value={year} onChange={handleYearChange}>
-            <option>Select Year</option>
-            {years.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className={isExpanded ? "by-price expand" : "by-price "}>
-        <div className="toggler" onClick={handleToggleClick}>
-          <label htmlFor="price">Price</label>
-          <div name="price">
-            {isExpanded ? (
-              <>
-                {price}
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                {price}
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-        {isExpanded && (
-          <div className="container">
-            <input
-              type="range"
-              min="0"
-              max="150000"
-              step="250"
-              value={price}
-              onChange={handlePriceChange}
-              className="range-slider"
-              list="tickmarks"
-            />
-          </div>
-        )}
-      </div>
-      <div className={isMileExpanded ? "by-milage expand" : "by-milage "}>
-        <div className="toggler" onClick={handleMileToggleClick}>
-          <label htmlFor="milage">Milage</label>
-          <div name="milage">
-            {isMileExpanded ? (
-              <>
-                {milage}
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                {milage}
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-        {isMileExpanded && (
-          <div className="container">
-            <input
-              type="range"
-              min="0"
-              max="500000"
-              step="1000"
-              value={milage}
-              onChange={handleMilageChange}
-              className="range-slider"
-              list="tickmarks"
-            />
-          </div>
-        )}
-      </div>
-      <div
-        className={
-          isBodyStyleExpanded ? "by-bodyStyle expand" : "by-bodyStyle "
-        }
-      >
-        <div className="toggler" onClick={handleBodyStyleToggleClick}>
-          <label htmlFor="bodyStyle">Body Style</label>
-          <div name="bodyStyle">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-        {isBodyStyleExpanded &&
-          bodyStyleData?.map((style) => {
-            return (
-              <div className="body-label" key={style.id}>
-                <label htmlFor={style.name}>
-                  {style.name}({style.total})
-                </label>
-                <div className="input-filed">
-                  <input type="checkbox" onChange={handleBodyStyleChange} />
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      <div className="by-bodycolor">
-        <div className="toggler">
-          <label htmlFor="excolor">Exterior Color</label>
-          <div name="excolor">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-        {isBodyStyleExpanded && (
-          <>
-            <div className="body-label">
-              <label htmlFor="SUV">SUV</label>
-              <div className="input-filed">
-                <input type="checkbox" onChange={handleBodyStyleChange} />
-              </div>
-            </div>
-            <div className="body-label">
-              <label htmlFor="SUV">SUV</label>
-              <div className="input-filed">
-                <input type="checkbox" onChange={handleBodyStyleChange} />
-              </div>
-            </div>
-            <div className="body-label">
-              <label htmlFor="SUV">SUV</label>
-              <div className="input-filed">
-                <input type="checkbox" onChange={handleBodyStyleChange} />
-              </div>
-            </div>
-            <div className="body-label">
-              <label htmlFor="SUV">SUV</label>
-              <div className="input-filed">
-                <input type="checkbox" onChange={handleBodyStyleChange} />
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-      <div className="by-engine">
-        <div className="toggler">
-          {" "}
-          <label htmlFor="engintype">Engine Type</label>
-          <div name="engintype">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="by-fueltype">
-        <div className="toggler">
-          <label htmlFor="fueltype">Fuel Type</label>
-          <div name="fueltype">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="by-transmision">
-        <div className="toggler">
-          <label htmlFor="fueltype">Transmission</label>
-          <div name="fueltype">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="by-interiorcolor">
-        <div className="toggler">
-          <label htmlFor="fueltype">Interior Color</label>
-          <div name="fueltype">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-      </div>
-      <div className="by-otheroptions">
-        <div className="toggler">
-          <label htmlFor="fueltype">Popular Options</label>
-          <div name="fueltype">
-            {isBodyStyleExpanded ? (
-              <>
-                <BiChevronUp />
-              </>
-            ) : (
-              <>
-                <BiChevronDown />
-              </>
-            )}
-          </div>
-        </div>
-      </div>
+      {sideNavData.map((item, index) => (
+        <AccordionItem
+          key={item.id}
+          isOpen={isOpen[index]}
+          data={item}
+          onToggle={() => handleToggle(index)}
+          onSearchChange={handleSearchChange}
+          searchState={initialSearchState}
+        />
+      ))}
     </div>
   );
 };

@@ -20,6 +20,7 @@
     scroll-behavior: smooth;
     list-style: none;
     text-decoration: none;
+    
     @media(max-width: 720px){
         font-size: 98%;
     }
@@ -52,7 +53,6 @@ body {
 .App {
     width: 100vw;
     height: auto;
-    // overflow-y: scroll;
     font-family: "Oswald", Verdana, Arial, sans-serif;
     color: var(--text-color);
     background: var(--background-color);
