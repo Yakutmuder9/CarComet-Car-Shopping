@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/", (req, res) => res.send("Get Route"));
-app.use("/api", router);
+app.use("/api/carcomet", router);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

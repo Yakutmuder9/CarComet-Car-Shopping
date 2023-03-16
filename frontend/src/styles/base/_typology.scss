@@ -69,7 +69,7 @@
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    max-width: 1400px;
+    max-width: 1350px;
     padding: 0% 5%;
 }
 .place-content {
@@ -129,31 +129,31 @@
         padding: 1.5rem 4rem;
         display: inline-block;
         border-radius: 10rem;
-        transition: all .2s;
+        transition: all 0.2s;
         position: relative;
 
         //Change for the <button> element
         border: none;
         cursor: pointer;
     }
-    
+
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 1rem 2rem rgba(#000000a6,.2);
+        box-shadow: 0 1rem 2rem rgba(#000000a6, 0.2);
 
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
     }
-    
+
     &:active,
     &:focus {
         outline: none;
         transform: translateY(-1px);
-        box-shadow: 0 .5rem 1rem rgba(#000000a6,.2);
+        box-shadow: 0 0.5rem 1rem rgba(#000000a6, 0.2);
     }
-    
+
     &--white {
         background-color: var(--white);
         color: #908a8aa6;
@@ -171,7 +171,7 @@
             background-color: var(--txt-color-2);
         }
     }
-    
+
     &::after {
         content: "";
         display: inline-block;
@@ -182,11 +182,11 @@
         top: 0;
         left: 0;
         z-index: -1;
-        transition: all .4s;
+        transition: all 0.4s;
     }
-    
+
     &--animated {
-        animation: moveInBottom .5s ease-out .75s;
+        animation: moveInBottom 0.5s ease-out 0.75s;
         animation-fill-mode: backwards;
     }
 }
@@ -194,23 +194,23 @@
 .btn-text {
     &:link,
     &:visited {
-        color:  var(--txt-color-2);
+        color: var(--txt-color-2);
         display: inline-block;
         text-decoration: none;
-        border-bottom: 1px solid  var(--txt-color-2);
+        border-bottom: 1px solid var(--txt-color-2);
         padding: 3px;
-        transition: all .2s;
+        transition: all 0.2s;
     }
 
     &:hover {
-        background-color:  var(--txt-color-2);
-        color:  var(--white);
-        box-shadow: 0 1rem 2rem rgba(black, .15);
+        background-color: var(--txt-color-2);
+        color: var(--white);
+        box-shadow: 0 1rem 2rem rgba(black, 0.15);
         transform: translateY(-2px);
     }
 
     &:active {
-        box-shadow: 0 .5rem 1rem rgba(black, .15);
+        box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
         transform: translateY(0);
     }
 }
@@ -256,7 +256,6 @@
     border-radius: 10px;
     height: 50px;
     margin-top: 5px;
-
 
     .input-wrapper {
         position: relative;
@@ -327,4 +326,49 @@
             }
         }
     }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-250px);
+    }
+}
+
+
+
+
+
+/*Card Animation */
+@keyframes rotate {
+	from,
+	to {
+		animation-timing-function: ease-in;
+		transform: rotateY(-10deg);
+	}
+	25%,
+	75% {
+		animation-timing-function: ease-out;
+		transform: rotateY(0deg);
+	}
+	50% {
+		animation-timing-function: ease-in;
+		transform: rotateY(10deg);
+	}
 }
