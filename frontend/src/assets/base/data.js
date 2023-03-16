@@ -180,14 +180,14 @@ export const bodyStyleData = [
   },
 ];
 export const carEngineTypes = [
-  { id: 1, name: "Inline-four (I4)", total: 14, checked: false },
-  { id: 2, name: "V6", total: 62, checked: false },
-  { id: 3, name: "V8", total: 28, checked: false },
-  { id: 4, name: "Inline-six (I6)", total: 63, checked: false },
-  { id: 5, name: "W12", total: 12, checked: false },
-  { id: 6, name: "Boxer-four (Flat-four)", total: 43, checked: false },
-  { id: 7, name: "Boxer-six (Flat-six)", total: 36, checked: false },
-  { id: 8, name: "Rotary", total: "n/a", checked: false },
+  { id: 1, name: "V4", total: 2314, checked: false },
+  { id: 2, name: "V6", total: 1262, checked: false },
+  { id: 3, name: "V8", total: 628, checked: false },
+  { id: 4, name: "V3", total: 263, checked: false },
+  { id: 5, name: "V5", total: 112, checked: false },
+  { id: 6, name: "V10", total: 3, checked: false },
+  { id: 7, name: "V12", total: 6, checked: false },
+  { id: 8, name: "Electric", total: 65, checked: false },
 ];
 export const carFuelTypes = [
   { id: 1, name: "Gasoline", total: "n/a", checked: false },
@@ -206,34 +206,14 @@ export const carFuelTypes = [
 export const carTransmissionTypes = [
   { id: 1, name: "Manual", total: 187, checked: false },
   { id: 2, name: "Automatic", total: 765, checked: false },
-  { id: 3, name: "CVT", total: 43, checked: false },
-  { id: 4, name: "Dual Clutch", total: 23, checked: false },
-  { id: 5, name: "Semi-Automatic", total: 12, checked: false },
-  { id: 6, name: "Tiptronic", total: 8, checked: false },
-  { id: 7, name: "DSG", total: 7, checked: false },
-  { id: 8, name: "AMT", total: 6, checked: false },
-  { id: 9, name: "PDK", total: 5, checked: false },
-  { id: 10, name: "Sport Automatic", total: 4, checked: false },
-  { id: 11, name: "Automated Manual", total: 3, checked: false },
-  { id: 12, name: "Manual/Automatic", total: 2, checked: false },
-  { id: 13, name: "Manual/CVT", total: 1, checked: false },
-  { id: 14, name: "Manual/Single Clutch", total: 1, checked: false },
+  { id: 3, name: "Unknown", total: 43, checked: false },
 ];
 export const drivetrains = [
-  { id: 1, name: "Front-wheel drive", total: 120, checked: false },
-  { id: 2, name: "Rear-wheel drive", total: 85, checked: false },
-  { id: 3, name: "All-wheel drive", total: 70, checked: false },
-  { id: 4, name: "Four-wheel drive", total: 60, checked: false },
-  { id: 5, name: "Part-time four-wheel drive", total: 40, checked: false },
-  { id: 6, name: "Electronic all-wheel drive", total: 20, checked: false },
-  {
-    id: 7,
-    name: "Torque-vectoring all-wheel drive",
-    total: 15,
-    checked: false,
-  },
-  { id: 8, name: "Adaptive all-wheel drive", total: 10, checked: false },
-  { id: 9, name: "On-demand all-wheel drive", total: 5, checked: false },
+  { id: 1, name: "FDW", total: 2120, checked: false },
+  { id: 2, name: "AWD", total: 1285, checked: false },
+  { id: 3, name: "4WD", total: 1370, checked: false },
+  { id: 4, name: "RWD", total: 260, checked: false },
+  { id: 5, name: "unidentified", total: 2240, checked: false }
 ];
 export const bodyColors = [
   { id: 1, name: "White", total: 250, checked: false },
@@ -324,7 +304,7 @@ export const sideNavData = [
   },
   {
     id: 7,
-    title: "Engine type",
+    title: "Cylinder",
     submenu: carEngineTypes,
     component: "checkbox",
     label: "Engine",

@@ -146,7 +146,7 @@ const SideNav = () => {
 
   //car condition
   const [activeTab, setActiveTab] = useState(1);
-  const tabNames = ["Used", "New", "Cirtified"];
+  const tabNames = ["All", "Used", "New"];
 
   const handleTabClick = (index, tabName) => {
     setActiveTab(index);
